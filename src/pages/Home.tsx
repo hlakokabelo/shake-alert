@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ShakeIcon } from "../ShakeIcon";
+import { ShakeIcon } from "../components/ShakeIcon";
 
 type DeviceMotionEventWithPermission = typeof DeviceMotionEvent & {
   requestPermission?: () => Promise<"granted" | "denied">;

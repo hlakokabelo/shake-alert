@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import NotFound from "./NotFound";
+import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 
 function App() {
