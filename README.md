@@ -1,6 +1,6 @@
 # Shake-Alert
 
-live-demo [Shake-Alert](shake-alert-rho.vercel.app)
+live-demo [Shake-Alert](https://shake-alert-rho.vercel.app/)
 
 A simple React + TypeScript web app that detects phone shaking using the browser's `DeviceMotionEvent` API.
 
