@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import {ShakeIcon} from "./ShakeIcon.tsx"
 type DeviceMotionEventWithPermission = typeof DeviceMotionEvent & {
   requestPermission?: () => Promise<"granted" | "denied">;
 };
@@ -150,17 +150,18 @@ return (
       </p>
 
       <button
-        onClick={handleToggle}
-        className={`w-full mt-6 py-3.5 px-4 rounded-xl font-semibold text-base cursor-pointer transition-all duration-200 shadow-lg active:scale-[0.98] ${
-          shakeEnabled
-            ? "bg-red-500 hover:bg-red-600 shadow-red-500/30"
-            : "bg-emerald-500 hover:bg-emerald-600 shadow-emerald-500/30"
-        }`}
-      >
-        {shakeEnabled
-          ? "Disable Shake Detection"
-          : "Enable Shake Detection"}
-      </button>
+  onClick={handleToggle}
+  className={`w-full mt-6 py-3.5 px-4 rounded-xl font-semibold text-base cursor-pointer transition-all duration-200 shadow-lg active:scale-[0.98] flex items-center justify-center gap-2 ${
+    shakeEnabled
+      ? "bg-red-500 hover:bg-red-600 shadow-red-500/30"
+      : "bg-emerald-500 hover:bg-emerald-600 shadow-emerald-500/30"
+  }`}
+>
+  <ShakeIcon className="w-5 h-5" />
+  {shakeEnabled
+    ? "Disable Shake Detection"
+    : "Enable Shake Detection"}
+</button>
 
       <p className="mt-6 font-bold text-center text-lg text-slate-100">
         {message}
