@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ShakeIcon } from "../components/ShakeIcon";
 import toast from "react-hot-toast";
+import { soundAlarm } from "../util/soundAlarm";
 
 type DeviceMotionEventWithPermission = typeof DeviceMotionEvent & {
   requestPermission?: () => Promise<"granted" | "denied">;
@@ -10,9 +11,6 @@ function Home() {
   const [shakeEnabled, setShakeEnabled] = useState(false);
   const [motionAllowed, setMotionAllowed] = useState(false);
   const [message, setMessage] = useState("Shake detection is disabled.");
- 
-  const alarmRef = useRef<HTMLAudioElement | null>(null);
-
 
   const shakeCount = useRef(0);
   const shakeWindowStart = useRef(0);
@@ -72,13 +70,7 @@ function Home() {
                  position: "top-center",}
    );
 
-  alarmRef.current = new Audio("/alarm.wav");
-  navigator.vibrate?.([300, 200, 300, 200, 500]);
-  
-  await alarmRef.current.play();
-
-  alarmRef.current.pause();
-  alarmRef.current.currentTime = 0;
+   await soundAlarm()
 
     //
     // fetch("/api/emergency", {
