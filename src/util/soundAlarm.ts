@@ -1,19 +1,15 @@
-import { useRef } from "react";
+export const soundAlarm = async () => {
+  const alarm = new Audio("/alarm.wav");
+  alarm.loop = true;
+  const vibrationPattern = Array(6).fill([500, 250]).flat();
 
-  const alarmRef = useRef<HTMLAudioElement | null>(null);
+  navigator.vibrate?.(vibrationPattern);
+  await alarm.play();
 
-export const soundAlarm = async() => {
-alarmRef.current = new Audio("/alarm.wav");
-
-const vibrationPattern = Array(6).fill([500, 250]).flat();
-
-navigator.vibrate?.(vibrationPattern);
-await alarmRef.current.play();
-
-setTimeout(() => {
-  if (alarmRef.current) {
-    alarmRef.current.pause();
-    alarmRef.current.currentTime = 0;
-  }
-}, 5000);
-}
+  setTimeout(() => {
+    if (alarm) {
+      alarm.pause();
+      alarm.currentTime = 0;
+    }
+  }, 5000);
+};

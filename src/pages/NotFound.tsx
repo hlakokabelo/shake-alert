@@ -56,8 +56,6 @@ export default function NotFound() {
             </svg>
             Go Home
           </a>
-
-          
         </div>
       </div>
     </main>

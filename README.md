@@ -24,3 +24,4 @@ A simple React + TypeScript web app that detects phone shaking using the browser
 ```bash
 npm install
 npm run dev
+```
